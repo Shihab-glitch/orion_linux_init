@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+    <head>
+        <title>QuiteRSS</title>
+        <dateModified>Wed Sep 3 01:55:47 2025</dateModified>
+    </head>
+    <body>
+        <outline text="Sys + ML" type="rss" htmlUrl="http://rss.arxiv.org/rss/stat.ML" xmlUrl="https://export.arxiv.org/rss/stat.ML"/>
+        <outline text="Paper Index on ACL Anthology" type="rss" htmlUrl="https://aclanthology.org/papers/" xmlUrl="https://aclanthology.org/papers/index.xml"/>
+        <outline text="AI">
+            <outline text="LLM/NLP" type="rss" htmlUrl="http://rss.arxiv.org/rss/cs.CL" xmlUrl="https://export.arxiv.org/rss/cs.CL"/>
+            <outline text="ML" type="rss" htmlUrl="http://rss.arxiv.org/rss/cs.LG" xmlUrl="https://export.arxiv.org/rss/cs.LG"/>
+            <outline text="AI" type="rss" htmlUrl="http://rss.arxiv.org/rss/cs.AI" xmlUrl="https://export.arxiv.org/rss/cs.AI"/>
+        </outline>
+        <outline text="OS Stuff">
+            <outline text="OS" type="rss" htmlUrl="http://rss.arxiv.org/rss/cs.OS" xmlUrl="https://export.arxiv.org/rss/cs.OS"/>
+            <outline text="LWN.net" type="rss" htmlUrl="https://lwn.net" xmlUrl="https://lwn.net/headlines/rss"/>
+            <outline text="Red Hat Blog" type="rss" htmlUrl="https://www.redhat.com/en/rss/blog" xmlUrl="https://www.redhat.com/en/rss/blog"/>
+        </outline>
+        <outline text="Overalls">
+            <outline text="Brendan Gregg's Blog" type="rss" htmlUrl="http://www.brendangregg.com/blog" xmlUrl="http://www.brendangregg.com/blog/rss.xml"/>
+            <outline text="Google DeepMind Blog" type="rss" htmlUrl="https://deepmind.google/discover/blog/" xmlUrl="https://deepmind.google/blog/rss.xml"/>
+            <outline text="Julia Evans" type="rss" htmlUrl="http://jvns.ca" xmlUrl="https://jvns.ca/atom.xml"/>
+        </outline>
+        <outline text="Anna’s Blog" type="rss" htmlUrl="https://annas-archive.li/blog/" xmlUrl="https://annas-archive.org/blog/rss.xml"/>
+    </body>
+</opml>
