@@ -6,10 +6,10 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
-        "source": "$(find \"/home/orion13/.config/fastfetch/pngs/\" -name \"*.png\" | sort -R | head -1)",
-        "padding": {"top": 5},
-        "height": 14
-    },
+    "source": "$(find \"/home/orion13/.config/fastfetch/pngs/\" -name \"*.png\" | sort -R | head -1)",
+    "padding": { "top": 5, "left": 5, "right": 5 },
+    "height": 14
+  },
   "general": {},
   "display": {
     // disableLinewrap     - OBJECT      - "TRUE" - Whether to disable line wrap during the run
@@ -27,7 +27,7 @@
     //      - type 	       - enum (of string)     - Set whether to show icon before string keys
     //      - paddingLeft  - integer              - Set the left padding of keys
     "key": {
-      "width": 16,
+      "width": 16
     },
     // size                - OBJECT               - Set how a size value should be displayed
     //      - binaryPrefix - Combination          - Set the binary prefix to used when formatting sizes
@@ -40,8 +40,8 @@
       // CONSTANT {$2} - COLOR BACKGROUND FOR OUTPUT
       "\u001b[48;2;56;59;78m",
       // CONSTANT {$3} - VERTICAL BARS AT START AND 75th CHARACTERS FORWARD AND BACKWARD
-      "\u001b[90m│                                                            │\u001b[60D\u001b[39m",
-    ],
+      "\u001b[90m│                                                            │\u001b[60D\u001b[39m"
+    ]
   },
   //------------COLOR------------
   // CSI n m
@@ -156,13 +156,13 @@
     {
       "type": "custom",
       "key": "{#90}{$1}╭─────────────╮",
-      "format": "{#90}{$2}╭────────────────────────────────────────────────────────────╮",
+      "format": "{#90}{$2}╭────────────────────────────────────────────────────────────╮"
     },
     {
       "type": "title",
       "key": "{#90}{$1}│ {#92}User        {#90}│",
       //"fqdn": false,
-      "format": "{$2}{$3}{user-name} {#2}[{home-dir}]",
+      "format": "{$2}{$3}{user-name} {#2}[{home-dir}]"
       //fastfetch -h title-format
       // {1}: User name - user-name
       // {3}: Home directory - home-dir
@@ -172,7 +172,7 @@
       "type": "users",
       "key": "{#90}{$1}│ {#92}Users       {#90}│",
       "myselfOnly": false,
-      "format": "{$2}{$3}{1}@{host-name}{/host-name}localhost{/}{?client-ip}  {#2}[IP:{client-ip}]{?}  {#2}[Login time: {login-time}]",
+      "format": "{$2}{$3}{1}@{host-name}{/host-name}localhost{/}{?client-ip}  {#2}[IP:{client-ip}]{?}  {#2}[Login time: {login-time}]"
       // fastfetch -h users-format
       // {1}: User name - user-name
       // {2}: Host name - host-name
@@ -184,7 +184,7 @@
     {
       "type": "datetime",
       "key": "{#90}{$1}│ {#92}Date & Time {#90}│",
-      "format": "{$2}{$3}{year}-{month-pretty}-{day-in-month}  {hour-pretty}:{minute-pretty}:{second-pretty}  {#2}{weekday}  {#2}[W{week}] {#2}[UTC{offset-from-utc}]",
+      "format": "{$2}{$3}{year}-{month-pretty}-{day-in-month}  {hour-pretty}:{minute-pretty}:{second-pretty}  {#2}{weekday}  {#2}[W{week}] {#2}[UTC{offset-from-utc}]"
       //fastfetch -h datetime-format
       // {1}: year - year
       // {4}: month with leading zero - month-pretty
@@ -201,7 +201,7 @@
       "type": "title",
       "key": "{#90}{$1}│ {#93}Host        {#90}│",
       //"fqdn": false,
-      "format": "{$2}{$3}{#1}{#36}{host-name}",
+      "format": "{$2}{$3}{#1}{#36}{host-name}"
       //fastfetch -h title-format
       // {2}: Host name - host-name
       // The default is something similar to "{6}{7}{8}".
@@ -209,7 +209,7 @@
     {
       "type": "host",
       "key": "{#90}{$1}│ {#93}Machine     {#90}│",
-      "format": "{$2}{$3}{name} {#2}{version}",
+      "format": "{$2}{$3}{name} {#2}{version}"
       // fastfetch -h host-format
       // {2}: product name - name
       // {3}: product version - version
@@ -218,7 +218,7 @@
     {
       "type": "os",
       "key": "{#90}{$1}│ {#93}OS          {#90}│",
-      "format": "{$2}{$3}{pretty-name} {codename}{#2}[{arch}]",
+      "format": "{$2}{$3}{pretty-name} {codename}{#2}[{arch}]"
       // fastfetch -h os-format
       // {3}: Pretty name of the OS - pretty-name
       // {8}: Version of the OS - version
@@ -229,7 +229,7 @@
     {
       "type": "kernel",
       "key": "{#90}{$1}│ {#93}Kernel      {#90}│",
-      "format": "{$2}{$3}{sysname} {#2}[v{release}]",
+      "format": "{$2}{$3}{sysname} {#2}[v{release}]"
       // fastfetch -h kernel-format
       // {1}: Sysname - sysname
       // {2}: Release - release
@@ -239,7 +239,7 @@
       "type": "uptime",
       "key": "{#90}{$1}│ {#93}Uptime      {#90}│",
       //"format": "{$2}{$3}{days} Days {hours} Hours {minutes} Mins {seconds} Secs",
-      "format": "{$2}{$3}{?days}{days} Days + {?}{hours}:{minutes}:{seconds}",
+      "format": "{$2}{$3}{?days}{days} Days + {?}{hours}:{minutes}:{seconds}"
       // fastfetch -h uptime-format
       // {1}: Days - days
       // {2}: Hours - hours
@@ -260,7 +260,7 @@
       "key": "{#90}{$1}│ {#91}CPU         {#90}│",
       "showPeCoreCount": true,
       "temp": true,
-      "format": "{$2}{$3}{name} {#2}[C:{core-types}] {#2}[{freq-max}]",
+      "format": "{$2}{$3}{name} {#2}[C:{core-types}] {#2}[{freq-max}]"
       // fastfetch -h cpu-format
       // {1}: Name - name
       // {7}: Max frequency (formatted) - freq-max
@@ -272,7 +272,7 @@
       "key": "{#90}{$1}│ {#91}GPU         {#90}│",
       "detectionMethod": "auto",
       "driverSpecific": true,
-      "format": "{$2}{$3}{name} {#2}[C:{core-count}] {#2}[{type}]",
+      "format": "{$2}{$3}{name} {#2}[C:{core-count}] {#2}[{type}]"
       // fastfetch -h gpu-format
       // {1}: GPU vendor - vendor
       // {2}: GPU name - name
@@ -287,7 +287,7 @@
     {
       "type": "memory",
       "key": "{#90}{$1}│ {#91}Memory      {#90}│",
-      "format": "{$2}{$3}{used} / {total} ({percentage}{$2})",
+      "format": "{$2}{$3}{used} / {total} ({percentage}{$2})"
       // fastfetch -h memory-format
       // {1}: Used size - used
       // {2}: Total size - total
@@ -298,7 +298,7 @@
     {
       "type": "disk",
       "key": "{#90}{$1}│ {#91}Disk        {#90}│",
-      "format": "{$2}{$3}{size-used} / {size-total} ({size-percentage}{$2})",
+      "format": "{$2}{$3}{size-used} / {size-total} ({size-percentage}{$2})"
       // fastfetch -h disk-format
       // {1}: Size used - size-used
       // {2}: Size total - size-total
@@ -308,7 +308,7 @@
     {
       "type": "swap",
       "key": "{#90}{$1}│ {#91}Swap        {#90}│",
-      "format": "{$2}{$3}{used} / {total}{$2} ({percentage}{$2})",
+      "format": "{$2}{$3}{used} / {total}{$2} ({percentage}{$2})"
     },
     // {
     //   "type": "battery",
@@ -319,7 +319,7 @@
     {
       "type": "terminal",
       "key": "{#90}{$1}│ {#95}Terminal    {#90}│",
-      "format": "{$2}{$3}{pretty-name} {#2}[{version}] [PID:{pid}]",
+      "format": "{$2}{$3}{pretty-name} {#2}[{version}] [PID:{pid}]"
       // fastfetch -h terminal-format
       // {5}: Terminal pretty name - pretty-name
       // {6}: Terminal version - version
@@ -328,7 +328,7 @@
     {
       "type": "terminalfont",
       "key": "{#90}{$1}│ {#95}Font        {#90}│",
-      "format": "{$2}{$3}{name}  {#2}[{size}]",
+      "format": "{$2}{$3}{name}  {#2}[{size}]"
       // fastfetch -h terminalfont-format
       // {2}: Terminal font name - name
       // {3}: Terminal font size - size
@@ -337,7 +337,7 @@
     {
       "type": "shell",
       "key": "{#90}{$1}│ {#95}Shell       {#90}│",
-      "format": "{$2}{$3}{pretty-name}  {#2}[v{version}] [PID:{pid}]",
+      "format": "{$2}{$3}{pretty-name}  {#2}[v{version}] [PID:{pid}]"
       // fastfetch -h shell-format
       // {3}: Shell base name of arg0 - exe-name
       // {4}: Shell version - version
@@ -353,7 +353,7 @@
       "showIpv4": true,
       "showIpv6": false,
       "showMtu": true,
-      "format": "{$2}{$3}{ifname}: {ipv4}  {#2}[MTU:{mtu}]",
+      "format": "{$2}{$3}{ifname}: {ipv4}  {#2}[MTU:{mtu}]"
       // fastfetch -h localip-format
       // {1}: Local IPv4 address - ipv4
       // {4}: Interface name - ifname
@@ -368,7 +368,7 @@
       "showIpv4": false,
       "showIpv6": true,
       "showMtu": true,
-      "format": "{$2}{$3}{ifname}: {ipv6}  {#2}[MTU:{mtu}]",
+      "format": "{$2}{$3}{ifname}: {ipv6}  {#2}[MTU:{mtu}]"
       // fastfetch -h localip-format
       // {2}: Local IPv6 address - ipv6
       // {4}: Interface name - ifname
@@ -383,7 +383,7 @@
       "type": "publicip",
       "key": "{#90}{$1}│ {#94}Public IPv4 {#90}│",
       "format": "{$2}{$3}{ip}  {#2}[{location}]",
-      "ipv6": false,
+      "ipv6": false
       // fastfetch -h publicip-format
       // {1}: Public IP address - ip
       // {2}: Location - location
@@ -393,7 +393,7 @@
       "type": "publicip",
       "key": "{#90}{$1}│ {#94}Public IPv6 {#90}│",
       "ipv6": true,
-      "format": "{$2}{$3}{ip}  {#2}[{location}]",
+      "format": "{$2}{$3}{ip}  {#2}[{location}]"
       // fastfetch -h publicip-format
       // {1}: Public IP address - ip
       // {2}: Location - location
@@ -407,7 +407,7 @@
     {
       "type": "custom",
       "key": "{#90}{$1}╰─────────────╯",
-      "format": "{#90}{$2}╰────────────────────────────────────────────────────────────╯",
-    },
-  ],
+      "format": "{#90}{$2}╰────────────────────────────────────────────────────────────╯"
+    }
+  ]
 }
