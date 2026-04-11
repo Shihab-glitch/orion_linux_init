@@ -1,0 +1,183 @@
+# ------------------------------------------------------------------------------
+# GLOBAL SETTINGS
+# ------------------------------------------------------------------------------
+command_timeout = 5000
+add_newline = true
+
+# ------------------------------------------------------------------------------
+# LEFT PROMPT (Context: User, Dir, Git)
+# ------------------------------------------------------------------------------
+format = """
+[](#3B4252)\
+$username\
+[](bg:#434C5E fg:#3B4252)\
+$directory\
+[](fg:#434C5E bg:#4C566A)\
+$git_branch\
+$git_status\
+[](fg:#4C566A) \
+"""
+
+# ------------------------------------------------------------------------------
+# RIGHT PROMPT (Tooling: Languages, Docker, Time)
+# ------------------------------------------------------------------------------
+right_format = """
+[](fg:#88C0D0)\
+$c\
+${custom.cpp}\
+$elixir\
+$elm\
+$golang\
+$haskell\
+$java\
+$julia\
+$nodejs\
+$nim\
+$rust\
+$python\
+[](fg:#81A1C1 bg:#88C0D0)\
+$docker_context\
+[](fg:#5E81AC bg:#81A1C1)\
+$time\
+[](fg:#88C0D0 bg:#5E81AC)\
+${custom.os_name}\
+[](fg:#88C0D0)\
+"""
+
+# ------------------------------------------------------------------------------
+# MODULE SETTINGS
+# ------------------------------------------------------------------------------
+
+# [os]
+# disabled = false
+# style = "bg:#88C0D0 fg:#2E3440"
+# format = '[ $symbol ]($style)'
+#
+# [os.symbols]
+# Windows = "Win "
+# Macos = "Mac "
+# Linux = "Tux "
+
+[custom.os_name]
+command = "cat /etc/os-release | grep 'PRETTY_NAME' | cut -d '=' -f 2 | tr -d '\"'"
+style = "bg:#88C0D0 fg:#2E3440"
+format = '[ $output ]($style)'
+when = "true"
+
+[username]
+show_always = true
+style_user = "bg:#3B4252 fg:#D8DEE9"
+style_root = "bg:#3B4252 fg:#BF616A"
+format = '[Me: $user ]($style)'
+
+[directory]
+style = "bg:#434C5E fg:#E5E9F0"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "Docs "
+"Downloads" = "Down "
+"Music" = "Music "
+"Pictures" = "Pics "
+
+[git_branch]
+symbol = "git: "
+style = "bg:#4C566A fg:#ECEFF4"
+format = '[ $symbol$branch ]($style)'
+
+[git_status]
+conflicted = " ⚔️ "
+ahead = " 🏎️ 💨×${count} "
+behind = " 🐢×${count} "
+diverged = " 🔱 🏎️ 💨×${ahead_count} 🐢×${behind_count} "
+untracked = " ❓×${count} "
+stashed = " 📦 "
+modified = " 📝×${count} "
+staged = " 🗃️×${count} "
+deleted = " 🗑️×${count} "
+format = "[$all_status$ahead_behind]($style)"
+style = "fg:#88C0D0 bg:#3B4252"
+
+# ------------------------------------------------------------------------------
+# LANGUAGES (Text Labels)
+# ------------------------------------------------------------------------------
+
+[c]
+symbol = "C "
+style = "bg:#88C0D0 fg:#2E3440"
+format = '[ $symbol($version) ]($style)'
+detect_extensions = ['c', 'h']
+
+[custom.cpp]
+symbol = "C++ "
+style = "bg:#88C0D0 fg:#2E3440"
+format = '[ $symbol($output) ]($style)'
+command = "c++ --version | awk '{print $3}' | head -n 1"
+detect_extensions = ["cpp", "cxx", "hpp", "cc"]
+
+[elixir]
+symbol = "Elixir "
+style = "bg:#88C0D0 fg:#2E3440"
+format = '[ $symbol($version) ]($style)'
+
+[elm]
+symbol = "Elm "
+style = "bg:#88C0D0 fg:#2E3440"
+format = '[ $symbol($version) ]($style)'
+
+[golang]
+symbol = "Go "
+style = "bg:#88C0D0 fg:#2E3440"
+format = '[ $symbol($version) ]($style)'
+
+[haskell]
+symbol = "Hs "
+style = "bg:#88C0D0 fg:#2E3440"
+format = '[ $symbol($version) ]($style)'
+
+[java]
+symbol = "Java "
+style = "bg:#88C0D0 fg:#2E3440"
+format = '[ $symbol($version) ]($style)'
+
+[julia]
+symbol = "Jl "
+style = "bg:#88C0D0 fg:#2E3440"
+format = '[ $symbol($version) ]($style)'
+
+[nodejs]
+symbol = "Node "
+style = "bg:#88C0D0 fg:#2E3440"
+format = '[ $symbol($version) ]($style)'
+
+[nim]
+symbol = "Nim "
+style = "bg:#88C0D0 fg:#2E3440"
+format = '[ $symbol($version) ]($style)'
+
+[python]
+symbol = "Py "
+style = "bg:#88C0D0 fg:#2E3440"
+format = '[ $symbol($version )(\($virtualenv\) )]($style)'
+
+[rust]
+symbol = "Rs "
+style = "bg:#88C0D0 fg:#2E3440"
+format = '[ $symbol($version) ]($style)'
+
+# ------------------------------------------------------------------------------
+# UTILS & TIME
+# ------------------------------------------------------------------------------
+
+[docker_context]
+symbol = "Docker "
+style = "bg:#81A1C1 fg:#2E3440"
+format = '[ $symbol$context ]($style)'
+
+[time]
+disabled = false
+time_format = "%T"
+style = "bg:#5E81AC fg:#ECEFF4"
+format = '[ $time ]($style)'
